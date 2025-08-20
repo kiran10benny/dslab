@@ -42,7 +42,51 @@ void insert_e(){
    display();
    printf("\n");
 }
-
+void insert_pos(){
+    int pos;
+        struct Node* newnode = malloc(sizeof(struct Node));
+   printf("Enter the element   ");
+   scanf("%d",&newnode->data);
+   printf("Enter the position\n");
+   scanf("%d",&pos);
+   if(pos==1){
+    newnode->next=head;
+    head=newnode;
+   }
+   temp=head;
+   for(int i=1;i<pos-1;i++)
+   {
+       temp=temp->next;
+   }
+   newnode->next=temp->next;
+   temp->next=newnode;
+   
+      printf("Elements are ....");
+   display();
+   printf("\n");
+}
+void delb(){
+    if(head==NULL)
+    {
+        printf("stack empty\n");
+    }
+    temp=head;
+    head=temp->next;
+    printf("element deleted is %d",temp->data);
+    printf("\n");
+    free(temp);
+}
+void dele(){
+    if(head==NULL)
+    printf("Empty\n");
+    if(head->next==NULL){
+        free(head);
+        head=NULL;
+    }
+    while(temp->next->next!=NULL){
+        
+    }
+}
 void main(){
     int ch;
     while(ch!=5)
@@ -54,8 +98,15 @@ void main(){
             break;
             case 2:insert_e();
             break;
-            case 3:display();
+            case 3:insert_pos();
             break;
+            case 4:delb();
+            break;
+            case 5:dele();
+            break;
+            case 7:display();
+            break;
+            case 8:break;
         }
     }
 }
