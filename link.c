@@ -43,6 +43,31 @@ printf("\n");
 free(temp);
 }
 }
+void search(){
+int pos=1,flag=0,val;
+if(top==NULL){
+printf("Stack is empty\n");
+return;
+}
+printf("Enter the element to be searched\n");
+scanf("%d",&val);
+struct Node *temp=top;
+while(temp!=NULL)
+{
+if(temp->data==val){
+flag=1;
+break;
+}
+else
+temp=temp->next;
+}
+if(flag==1)
+printf("Element found\n");
+else
+printf("element not found\n");
+
+}
+
 int main(){
 int value ,ch;
 while(ch !=5){
@@ -60,6 +85,9 @@ switch(ch)
 	case 3:
 	display();
 	break;
+	case 4:
+	search();
+	break;
 	case 5:
 	break;
 	default:
@@ -67,5 +95,6 @@ switch(ch)
 }
 }
 }
+
 
 
